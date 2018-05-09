@@ -1,0 +1,122 @@
+// Copyright 2015, Google Inc.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "generated/protoc";
+option java_outer_classname = "CurrencyProto";
+
+package curr;
+
+enum Currency {
+    THB = 0;
+
+    USD = 1;
+
+    AUD = 2;
+
+    HKD = 3;
+
+    CAD = 4;
+    NZD = 5;
+
+    SGD = 6;
+
+    XDR = 7;
+
+    EUR = 8;
+
+    HUF = 9;
+
+    CHF = 10;
+
+    GBP = 11;
+
+    UAH = 12;
+
+    JPY = 13;
+
+    CZK = 14;
+
+    DKK = 15;
+
+    ISK = 16;
+
+    NOK = 17;
+
+    SEK = 18;
+
+    HRK = 19;
+
+    RON = 20;
+
+    BGN = 21;
+
+    TRY = 22;
+    ILS = 23;
+
+    CLP = 24;
+
+    MXN = 25;
+
+    PHP = 26;
+
+    ZAR = 27;
+
+    BRL = 28;
+
+    MYR = 29;
+
+    RUB = 30;
+
+    IDR = 31;
+
+    INR = 32;
+
+    KRW = 33;
+
+    CNY = 34;
+}
+
+message Currencies
+{
+    repeated Currency currencies = 1;
+}
+
+message ExchangeRate
+{
+    Currency currency =1;
+    float rate = 2;
+}
+
+service CurrenciesStream
+{
+    rpc GetCurrenciesRate (Currencies) returns (stream ExchangeRate){}
+}

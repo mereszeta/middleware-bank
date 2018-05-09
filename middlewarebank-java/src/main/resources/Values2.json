@@ -1,0 +1,10 @@
+{
+  "supportedCurrencies": [
+    "ISK",
+    "NOK",
+    "SEK",
+    "HRK",
+    "RON",
+    "BGN"
+  ]
+}
